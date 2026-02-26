@@ -5,13 +5,14 @@ import { ZoroastrianYearPipe } from './pipes/zoroastrian-year/zoroastrian-year-p
 import { ZoroastrianMonthPipe } from './pipes/zoroastrian-month/zoroastrian-month-pipe';
 import { ZoroastrianDayPipe } from './pipes/zoroastrian-day/zoroastrian-day-pipe';
 import dayjs,{ Dayjs } from 'dayjs';
+import { DatejsPipe } from './pipes/persian-date/datejs-pipe';
 interface Day {
   number: number;
   isWeekend: boolean;
 }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, ZoroastrianYearPipe, ZoroastrianMonthPipe, ZoroastrianDayPipe],
+  imports: [RouterOutlet, CommonModule, ZoroastrianYearPipe, ZoroastrianMonthPipe, ZoroastrianDayPipe,DatejsPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
