@@ -1,30 +1,17 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { inject, Pipe, PipeTransform } from '@angular/core';
+import { ZoroastrianDate } from '../../Services/zoroastrian-date';
+import { Dayjs } from 'dayjs';
 
 @Pipe({
   name: 'zoroastrianMonth',
 })
 export class ZoroastrianMonthPipe implements PipeTransform {
-
-  transform(value: Date, format: string = "full"): string | number {
-    const month = +(new Intl.DateTimeFormat('fa-IR-u-nu-latn', { month: 'numeric' }).format(value));
+  private zoroastrianDate = inject(ZoroastrianDate);
+  transform(value: Dayjs, format: string = "full"): string | number {
     if (format === "numberic")
-      return month;
-    const names = [
-      '',               // اندیس ۰ استفاده نمی‌شود
-      'فروشی',        // ۱
-      'اشاوهیشتا',
-      'هه اروتات',
-      'تشتریا',
-      'اَمرتات',
-      'خشتره ویریه',
-      'میترا',
-      'آبان',
-      'آتر',
-      'دتوشو',
-      'وهومن',
-      'سنپتا آرمیتی',      // ۱۲
-    ];
-    return names[month];
+      return this.zoroastrianDate.getMonth(value);
+
+    return this.zoroastrianDate.getMonthName(value);
   }
 
 }

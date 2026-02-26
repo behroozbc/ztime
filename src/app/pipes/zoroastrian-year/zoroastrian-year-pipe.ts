@@ -1,12 +1,15 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { inject, Pipe, PipeTransform } from '@angular/core';
+import { ZoroastrianDate } from '../../Services/zoroastrian-date';
+import { Dayjs } from 'dayjs';
 
 @Pipe({
   name: 'zoroastrianYear',
 })
 export class ZoroastrianYearPipe implements PipeTransform {
 
-  transform(value: Date): number {
-    return +(new Intl.DateTimeFormat('fa-IR-u-nu-latn', { year: 'numeric' }).format(value)) + 2359;
+  private zoroastrianDate = inject(ZoroastrianDate);
+  transform(value: Dayjs): number {
+    return this.zoroastrianDate.getYear(value);
   }
 
 }

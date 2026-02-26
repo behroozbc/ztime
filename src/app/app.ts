@@ -4,19 +4,19 @@ import { RouterOutlet } from '@angular/router';
 import { ZoroastrianYearPipe } from './pipes/zoroastrian-year/zoroastrian-year-pipe';
 import { ZoroastrianMonthPipe } from './pipes/zoroastrian-month/zoroastrian-month-pipe';
 import { ZoroastrianDayPipe } from './pipes/zoroastrian-day/zoroastrian-day-pipe';
+import dayjs,{ Dayjs } from 'dayjs';
 interface Day {
   number: number;
   isWeekend: boolean;
 }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, ZoroastrianYearPipe, ZoroastrianMonthPipe,ZoroastrianDayPipe],
+  imports: [RouterOutlet, CommonModule, ZoroastrianYearPipe, ZoroastrianMonthPipe, ZoroastrianDayPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  today: Date = new Date();
-
+  today: Dayjs = dayjs();
   days: (number | null)[] = [
     1, 2, 3, 4, 5, 6, 7,
     8, 9, 10, 11, 12, 13, 14,
