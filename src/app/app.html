@@ -1,67 +1,10 @@
-<!-- app.component.html -->
-<!-- <div class="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-4xl mx-auto"> -->
-<!-- عنوان ماه -->
-<!-- <div class="text-center mb-10">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">
-        اسفند ۱۴۰۴
-      </h1>
-      <p class="mt-3 text-lg text-gray-600">جمعه ۱ اسفند تا شنبه ۳۰ اسفند</p>
-    </div> -->
-
-<!-- تقویم -->
-<!-- <div class="bg-white/70 backdrop-blur-xl shadow-2xl rounded-2xl p-6 md:p-8 border border-white/40"> -->
-<!-- روزهای هفته -->
-<!-- <div class="grid grid-cols-7 gap-2 mb-4 text-center font-medium text-gray-600 text-sm md:text-base">
-        <div class="py-3">شنبه</div>
-        <div class="py-3">یک‌شنبه</div>
-        <div class="py-3">دوشنبه</div>
-        <div class="py-3">سه‌شنبه</div>
-        <div class="py-3">چهارشنبه</div>
-        <div class="py-3">پنج‌شنبه</div>
-        <div class="py-3 text-red-600">جمعه</div>
-      </div> -->
-
-<!-- مربع‌های روزها -->
-<!-- <div class="grid grid-cols-7 gap-2 md:gap-3"> -->
-<!-- روزهای خالی قبل از روز ۱ (اختیاری - اینجا فرض کردیم ماه از شنبه شروع می‌شود) -->
-<!-- اگر ماه از وسط هفته شروع شود، می‌توانید *ngFor با شرط بگذارید -->
-
-<!-- @for (day of days; track day) { -->
-<!-- <div 
-            class="aspect-square rounded-xl flex flex-col items-center justify-center transition-all duration-300 cursor-pointer group
-                   border border-gray-200 hover:border-indigo-400 hover:shadow-lg hover:scale-[1.03] active:scale-95"
-            [ngClass]="{
-              'bg-indigo-600 text-white shadow-indigo-200': day === 8 || day === 19,
-              'bg-pink-500 text-white shadow-pink-200': day === 14 || day === 25,
-              'text-gray-400 opacity-50 pointer-events-none': day === null
-            }"
-          >
-            <span class="text-xl md:text-2xl font-bold">{{ day || '' }}</span>
-             -->
-<!-- می‌توانید اینجا رویداد یا نقطه کوچک بگذارید -->
-<!-- @if (day && (day === 8 || day === 14 || day === 19 || day === 25)) {
-              <span class="mt-1.5 w-2 h-2 rounded-full bg-white/80 group-hover:bg-white"></span>
-            }
-          </div> -->
-<!-- }
-      </div>
-    </div> -->
-
-<!-- توضیح کوتاه -->
-<!-- <div class="text-center mt-10 text-gray-500 text-sm">
-      روزهای رنگی = تعطیلات یا رویدادهای مهم
-    </div>
-  </div>
-</div> -->
-<!-- date-info.component.html -->
 <div
      class="max-w-lg container mx-auto bg-linear-to-br from-slate-900 to-slate-800 text-gray-100 rounded-xl shadow-2xl overflow-hidden border border-slate-700/50 md:mt-8">
 
   <!-- Header -->
   <div class="bg-slate-950/80 px-6 py-5 border-b border-slate-700/70">
     <h1 class="text-2xl md:text-3xl font-bold text-center text-amber-300 tracking-wide">
-   تقویم زرتشتیان
+      تقویم زرتشتیان
     </h1>
     <!-- <p class="text-center text-lg mt-2 font-medium text-cyan-300">
       ۱۴۰۴ اسفند ۰۷ - پنج‌شنبه
@@ -80,42 +23,70 @@
         <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-600/50 text-center">
           <p>{{today|zoroastrianYear}}/{{today|zoroastrianMonth:"numberic"}}/{{today|zoroastrianDay:"numberic"}}</p>
         </div>
-        <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-600/50 text-center">
-          <p class="text-violet-300 font-medium">{{today|zoroastrianYear}}- {{today|zoroastrianMonth}}-{{today|zoroastrianDay}}</p>
+        <div class="bg-slate-800/50 group relative inline-block p-4 rounded-lg border border-slate-600/50 text-center">
+          <p class="text-violet-300 font-medium">{{today|zoroastrianYear}}-
+            {{today|zoroastrianMonth}}-{{today|zoroastrianDay}}</p>
+          <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 
+                invisible group-hover:visible opacity-0 group-hover:opacity-100 
+                transition-all duration-200 pointer-events-none z-50">
+            <div class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg shadow-xl whitespace-nowrap">
+              این نام اوستایی می باشد.
+            </div>
+            <!-- مثلث کوچک -->
+            <div class="absolute top-full left-1/2 -translate-x-1/2 
+                  border-8 border-transparent border-t-gray-800"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- خورشیدی -->
-    <div class="pb-6">
-      <h2 class="text-xl font-semibold text-emerald-400 mb-4 flex items-center gap-2">
-        <span class="text-2xl">☀️</span>
-        تاریخ خورشیدی
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
-        <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-600/50">
-          <p class="text-gray-300" >{{today|datejs}}</p>
-        </div>
-        <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-600/50">
-          <p class="text-gray-300">{{today|datejs:'YYYY - MMMM - DD'}}</p>
+      <!-- خورشیدی -->
+      <div class="pb-6">
+        <h2 class="text-xl font-semibold text-emerald-400 mb-4 flex items-center gap-2">
+          <span class="text-2xl">☀️</span>
+          تاریخ خورشیدی
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
+          <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-600/50">
+            <p class="text-gray-300">{{today|datejs}}</p>
+          </div>
+          <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-600/50">
+            <p class="text-gray-300">{{today|datejs:'YYYY - MMMM - DD'}}</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- میلادی -->
-    <div class="py-6">
-      <h2 class="text-xl font-semibold text-blue-400 mb-4 flex items-center gap-2">
-        <span class="text-2xl">🌍</span>
-        تاریخ میلادی
-      </h2>
-      <div class="bg-slate-800/50 p-5 rounded-lg border border-slate-600/50 text-center text-lg">
-        <p>{{today|datejs:'YYYY-MM-DD':'gregory':'en'}}</p>
-        <p class="text-xl font-bold mt-1 text-blue-300">{{today|datejs:"YYYY, MMMM- DD":'gregory':'en'}}</p>
+      <!-- میلادی -->
+      <div class="py-6">
+        <h2 class="text-xl font-semibold text-blue-400 mb-4 flex items-center gap-2">
+          <span class="text-2xl">🌍</span>
+          تاریخ میلادی
+        </h2>
+        <div class="bg-slate-800/50 p-5 rounded-lg border border-slate-600/50 text-center text-lg">
+          <p>{{today|datejs:'YYYY-MM-DD':'gregory':'en'}}</p>
+          <p class="text-xl font-bold mt-1 text-blue-300">{{today|datejs:"YYYY, MMMM- DD":'gregory':'en'}}</p>
+        </div>
       </div>
-    </div>
 
+
+
+    </div>
 
 
   </div>
 
+  <!-- Tooltip بالا -->
+  <div class="group relative inline-block">
+    <span class="">
+      بالا
+    </span>
 
-</div>
+    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 
+                invisible group-hover:visible opacity-0 group-hover:opacity-100 
+                transition-all duration-200 pointer-events-none z-50">
+      <div class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg shadow-xl whitespace-nowrap">
+        این تولتیپ بالای دکمه‌ست
+      </div>
+      <!-- مثلث کوچک -->
+      <div class="absolute top-full left-1/2 -translate-x-1/2 
+                  border-8 border-transparent border-t-gray-800"></div>
+    </div>
+  </div>
