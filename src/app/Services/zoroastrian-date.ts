@@ -55,7 +55,7 @@ export class ZoroastrianDate {
 
     ];
 
-    return names[zDay-1] || 'نامشخص';
+    return names[zDay] || 'نامشخص';
   }
   getDayOfMonth(date: Dayjs) {
     const dayOfYear = this.getDayOfYear(date);
