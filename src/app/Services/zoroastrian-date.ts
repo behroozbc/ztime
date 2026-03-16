@@ -21,8 +21,7 @@ export class ZoroastrianDate {
       return panje[extraDays - 1] || 'پنجه';
     }
     const zDay = dayOfYear % 30 || 30;
-    const names = [           // اندیس ۰ استفاده نمی‌شود
-      'انارام',        // ۱
+    const names = [           // اندیس ۰ استفاده نمی‌شود       // ۱
       'اورمزد',
       'وهمن',
       'اردیبهشت',
@@ -51,10 +50,12 @@ export class ZoroastrianDate {
       'اشتاد',
       'آسمان',
       'زامیاد',
-      'مانتره سپند'    // ۳۰
+      'مانتره سپند',    // ۳۰
+      'انارام',
+
     ];
 
-    return names[zDay] || 'نامشخص';
+    return names[zDay-1] || 'نامشخص';
   }
   getDayOfMonth(date: Dayjs) {
     const dayOfYear = this.getDayOfYear(date);
