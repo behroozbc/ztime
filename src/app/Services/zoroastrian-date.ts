@@ -22,6 +22,7 @@ export class ZoroastrianDate {
     }
     const zDay = dayOfYear % 30 || 30;
     const names = [           // اندیس ۰ استفاده نمی‌شود       // ۱
+      'انارام',
       'اورمزد',
       'وهمن',
       'اردیبهشت',
@@ -51,7 +52,6 @@ export class ZoroastrianDate {
       'آسمان',
       'زامیاد',
       'مانتره سپند',    // ۳۰
-      'انارام',
 
     ];
 
