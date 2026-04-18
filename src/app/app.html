@@ -66,6 +66,38 @@
         </div>
       </div>
 
+      <!-- پیشرفت سال -->
+      <div class="py-6">
+        <h2 class="text-xl font-semibold text-blue-400 mb-4 flex items-center gap-2">
+          <span class="text-2xl">🌍</span>
+          وضعیت پیشرفت سال
+        </h2>
+        <div class="bg-slate-800/50 p-5 rounded-lg border border-slate-600/50 text-center text-lg">
+          <!-- عنوان -->
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-sm font-medium text-zinc-400">چقدر از سال گذشته ...</span>
+            <span id="percentage"
+                  class="text-sm font-semibold text-emerald-400">{{yearProgressed}}%</span>
+          </div>
+          <!-- نوار پیشرفت -->
+          <div class="relative h-3 bg-zinc-900 rounded-3xl overflow-hidden shadow-inner border border-zinc-800">
+
+            <!-- نوار رنگی با گرادیانت و افکت درخشش -->
+            <div id="progress"
+                 [style.width]="yearProgressed+'%'"
+                 class="h-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-500 
+                  rounded-3xl transition-all duration-700 ease-out shadow-lg
+                  relative">
+
+              <!-- افکت درخشش داخلی -->
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent 
+                    animate-[shimmer_2s_infinite]"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
 
 
     </div>

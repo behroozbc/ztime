@@ -1,22 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ZoroastrianYearPipe } from './pipes/zoroastrian-year/zoroastrian-year-pipe';
 import { ZoroastrianMonthPipe } from './pipes/zoroastrian-month/zoroastrian-month-pipe';
 import { ZoroastrianDayPipe } from './pipes/zoroastrian-day/zoroastrian-day-pipe';
-import dayjs,{ Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import { DatejsPipe } from './pipes/persian-date/datejs-pipe';
+import { ZoroastrianDate } from './Services/zoroastrian-date';
 interface Day {
   number: number;
   isWeekend: boolean;
 }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, ZoroastrianYearPipe, ZoroastrianMonthPipe, ZoroastrianDayPipe,DatejsPipe],
+  imports: [RouterOutlet, CommonModule, ZoroastrianYearPipe, ZoroastrianMonthPipe, ZoroastrianDayPipe, DatejsPipe,],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
+  private zoroastrianDate = inject(ZoroastrianDate);
   today: Dayjs = dayjs();
   days: (number | null)[] = [
     1, 2, 3, 4, 5, 6, 7,
@@ -25,4 +27,11 @@ export class App {
     22, 23, 24, 25, 26, 27, 28,
     29, 30
   ];
+  /**
+   *
+   */
+  yearProgressed = 0;
+  constructor () {
+    this.yearProgressed = this.zoroastrianDate.getProgessedDays(this.today);
+  }
 }

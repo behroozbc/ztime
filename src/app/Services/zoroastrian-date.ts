@@ -86,4 +86,7 @@ export class ZoroastrianDate {
   getYear(date: Dayjs): number {
     return date.calendar('jalali').year() + 2359;
   }
+  getProgessedDays(date: Dayjs): number {
+    return Math.round( this.getDayOfYear(date)*100 / 365);
+  }
 }
