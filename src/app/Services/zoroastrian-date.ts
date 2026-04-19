@@ -22,7 +22,6 @@ export class ZoroastrianDate {
     }
     const zDay = dayOfYear % 30 || 30;
     const names = [           // اندیس ۰ استفاده نمی‌شود       // ۱
-      'انارام',
       'اورمزد',
       'وهمن',
       'اردیبهشت',
@@ -52,10 +51,10 @@ export class ZoroastrianDate {
       'آسمان',
       'زامیاد',
       'مانتره سپند',    // ۳۰
-
+      'انارام'
     ];
 
-    return names[zDay] || 'نامشخص';
+    return names[zDay - 1] || 'نامشخص';
   }
   getDayOfMonth(date: Dayjs) {
     const dayOfYear = this.getDayOfYear(date);
@@ -87,6 +86,6 @@ export class ZoroastrianDate {
     return date.calendar('jalali').year() + 2359;
   }
   getProgessedDays(date: Dayjs): number {
-    return Math.round( this.getDayOfYear(date)*100 / 365);
+    return Math.round(this.getDayOfYear(date) * 100 / 365);
   }
 }
