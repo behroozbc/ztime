@@ -61,7 +61,7 @@ export class ZoroastrianDate {
     return (dayOfYear % 30 || 30);
   }
   getMonth(date: Dayjs): number {
-    return date.calendar('jalali').month() + 1;
+    return Math.ceil( this.getDayOfYear(date) / 30) ;
   }
   getMonthName(date: Dayjs): string {
     const month = this.getMonth(date);
