@@ -15,7 +15,6 @@
     "target": "ES2022",
     "module": "preserve",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
