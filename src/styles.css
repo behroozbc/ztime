@@ -4,8 +4,8 @@
 html,
 body {
     height: 100%;
+    font-family: 'Vazirmatn UI', Roboto, "Helvetica Neue", sans-serif;
 }
-body {
-
+html[lang="fa"] body {
     font-family: 'Vazirmatn UI FD NL', Roboto, "Helvetica Neue", sans-serif;
 }
