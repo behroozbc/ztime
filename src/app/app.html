@@ -3,9 +3,28 @@
 
   <!-- Header -->
   <div class="bg-slate-950/80 px-6 py-5 border-b border-slate-700/70">
-    <h1 class="text-2xl md:text-3xl font-bold text-center text-amber-300 tracking-wide">
-      تقویم زرتشتیان
-    </h1>
+    <div class="flex items-center justify-between gap-4">
+      <h1 class="text-2xl md:text-3xl font-bold text-center text-amber-300 tracking-wide flex-1">
+        {{ 'title' | transloco }}
+      </h1>
+      <!-- Language Switcher -->
+      <div class="flex items-center gap-1 bg-slate-800/80 rounded-lg p-1 border border-slate-600/50">
+        <button
+          type="button"
+          (click)="setLang('fa')"
+          [class]="activeLang === 'fa' ? 'bg-amber-400 text-slate-900' : 'text-gray-300 hover:bg-slate-700'"
+          class="px-3 py-1 rounded-md text-sm font-medium transition-colors">
+          فارسی
+        </button>
+        <button
+          type="button"
+          (click)="setLang('en')"
+          [class]="activeLang === 'en' ? 'bg-amber-400 text-slate-900' : 'text-gray-300 hover:bg-slate-700'"
+          class="px-3 py-1 rounded-md text-sm font-medium transition-colors">
+          EN
+        </button>
+      </div>
+    </div>
     <!-- <p class="text-center text-lg mt-2 font-medium text-cyan-300">
       ۱۴۰۴ اسفند ۰۷ - پنج‌شنبه
     </p> -->
@@ -17,7 +36,7 @@
     <div class="pt-6">
       <h2 class="text-xl font-semibold text-violet-400 mb-4 flex items-center gap-2">
         <span class="text-2xl"></span>
-        تاریخ زرتشتی
+        {{ 'zoroastrianDate' | transloco }}
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
         <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-600/50 text-center">
@@ -30,7 +49,7 @@
                 invisible group-hover:visible opacity-0 group-hover:opacity-100 
                 transition-all duration-200 pointer-events-none z-50">
             <div class="bg-gray-800 text-white text-sm px-4 py-2 rounded-lg shadow-xl whitespace-nowrap">
-              این نام اوستایی می باشد.
+              {{ 'avestanNameTooltip' | transloco }}
             </div>
             <!-- مثلث کوچک -->
             <div class="absolute top-full left-1/2 -translate-x-1/2 
@@ -42,7 +61,7 @@
       <div class="pb-6">
         <h2 class="text-xl font-semibold text-emerald-400 mb-4 flex items-center gap-2">
           <span class="text-2xl">☀️</span>
-          تاریخ خورشیدی
+          {{ 'solarDate' | transloco }}
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
           <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-600/50">
@@ -58,7 +77,7 @@
       <div class="py-6">
         <h2 class="text-xl font-semibold text-blue-400 mb-4 flex items-center gap-2">
           <span class="text-2xl">🌍</span>
-          تاریخ میلادی
+          {{ 'gregorianDate' | transloco }}
         </h2>
         <div class="bg-slate-800/50 p-5 rounded-lg border border-slate-600/50 text-center text-lg">
           <p>{{today|datejs:'YYYY-MM-DD':'gregory':'en'}}</p>
@@ -70,12 +89,12 @@
       <div class="py-6">
         <h2 class="text-xl font-semibold text-blue-400 mb-4 flex items-center gap-2">
           <span class="text-2xl">🌍</span>
-          وضعیت پیشرفت سال
+          {{ 'yearProgress' | transloco }}
         </h2>
         <div class="bg-slate-800/50 p-5 rounded-lg border border-slate-600/50 text-center text-lg">
           <!-- عنوان -->
           <div class="flex justify-between items-center mb-3">
-            <span class="text-sm font-medium text-zinc-400">چقدر از سال گذشته ...</span>
+            <span class="text-sm font-medium text-zinc-400">{{ 'yearProgressLabel' | transloco }}</span>
             <span id="percentage"
                   class="text-sm font-semibold text-emerald-400">{{yearProgressed}}%</span>
           </div>
